@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cDm-At-3Dd">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--To Do List View Controller-->
+        <!--ToDo List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ToDoListViewController" customModule="DoIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V11-xD-yuq">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ChecklistItemCell" id="pT8-GH-Es0" customClass="ToDoTableViewCell" customModule="DoIt" customModuleProvider="target">
@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sor-tX-eqe">
-                                                    <rect key="frame" x="20" y="11" width="342" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="342" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -39,7 +39,7 @@
                                             <constraints>
                                                 <constraint firstItem="sor-tX-eqe" firstAttribute="leading" secondItem="Ebs-7j-zTD" secondAttribute="leadingMargin" id="2m3-Ae-cbz"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="sor-tX-eqe" secondAttribute="trailing" id="VZX-4o-zFJ"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="sor-tX-eqe" secondAttribute="bottom" constant="1" id="fiA-UR-Zp5"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="sor-tX-eqe" secondAttribute="bottom" id="fiA-UR-Zp5"/>
                                                 <constraint firstItem="sor-tX-eqe" firstAttribute="top" secondItem="Ebs-7j-zTD" secondAttribute="topMargin" id="zdo-Ac-NR1"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -63,12 +63,39 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="ToDo List" id="On2-2r-Djt">
+                        <barButtonItem key="backBarButtonItem" title="GoB" id="PYj-T1-vQR"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mVX-Kz-5fQ">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="o4e-0v-Eon"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="V11-xD-yuq" id="gQv-Wt-WNb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="957.97101449275374" y="20.758928571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6cL-Gh-QOr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cDm-At-3Dd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kip-uR-Lww">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="8mW-aU-Xwt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jTb-Qj-ctw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="79.710144927536234" y="-653.57142857142856"/>
         </scene>
     </scenes>
 </document>

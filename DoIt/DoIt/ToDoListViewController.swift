@@ -18,13 +18,26 @@ class ToDoListViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        
+//        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        
         ToDoListViewController.getTodoList {
             self.toDoItems = $0
         }
         
     }
 
-
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        
+        let newTodoItem = TodoItem(text: "NEW", check: false)
+        
+        toDoItems.append(newTodoItem)
+        
+        tableView.insertRows(at: [IndexPath(row: toDoItems.count-1, section: 0)], with: .automatic)
+        
+    }
+    
 }
 
 
@@ -68,6 +81,14 @@ extension ToDoListViewController: UITableViewDelegate {
         }
         
         self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        toDoItems.remove(at: indexPath.row)
+        
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        
     }
 }
 
