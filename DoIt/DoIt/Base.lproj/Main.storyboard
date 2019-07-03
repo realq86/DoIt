@@ -39,7 +39,7 @@
                                             <constraints>
                                                 <constraint firstItem="sor-tX-eqe" firstAttribute="leading" secondItem="Ebs-7j-zTD" secondAttribute="leadingMargin" id="2m3-Ae-cbz"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="sor-tX-eqe" secondAttribute="trailing" id="VZX-4o-zFJ"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="sor-tX-eqe" secondAttribute="bottom" id="fiA-UR-Zp5"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="sor-tX-eqe" secondAttribute="bottom" priority="750" id="fiA-UR-Zp5"/>
                                                 <constraint firstItem="sor-tX-eqe" firstAttribute="top" secondItem="Ebs-7j-zTD" secondAttribute="topMargin" id="zdo-Ac-NR1"/>
                                             </constraints>
                                         </tableViewCellContentView>
