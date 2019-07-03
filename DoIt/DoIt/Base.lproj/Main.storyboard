@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ChecklistItemCell" id="pT8-GH-Es0">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ChecklistItemCell" id="pT8-GH-Es0" customClass="ToDoTableViewCell" customModule="DoIt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pT8-GH-Es0" id="Ebs-7j-zTD">
@@ -43,6 +43,9 @@
                                                 <constraint firstItem="sor-tX-eqe" firstAttribute="top" secondItem="Ebs-7j-zTD" secondAttribute="topMargin" id="zdo-Ac-NR1"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="label" destination="sor-tX-eqe" id="7gg-g6-Bdm"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

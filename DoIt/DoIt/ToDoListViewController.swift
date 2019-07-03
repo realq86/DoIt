@@ -12,9 +12,16 @@ class ToDoListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var toDoItems = [TodoItem]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        ToDoListViewController.getTodoList {
+            self.toDoItems = $0
+        }
+        
     }
 
 
@@ -36,8 +43,11 @@ extension ToDoListViewController: UITableViewDataSource{
     @available(iOS 2.0, *)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "ChecklistItemCell", for: indexPath)
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "ChecklistItemCell", for: indexPath) as! ToDoTableViewCell
         
+        let todoItem = toDoItems[indexPath.row]
+        cell.label.text = todoItem.text ?? ""
+        cell.accessoryType = todoItem.check ? .checkmark : .none
         
         return cell
     }
@@ -57,5 +67,38 @@ extension ToDoListViewController: UITableViewDelegate {
         
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
+}
+
+extension ToDoListViewController {
+    
+    static func getTodoList(completion: ([TodoItem]) -> ()) {
+        
+        var returnArray = [TodoItem]()
+        
+        let row0text = "Walk the dog"
+        let row0checked = false
+        returnArray.append(TodoItem(text: row0text, check: row0checked))
+        
+        let row1text = "Brush teeth"
+        let row1checked = false
+        returnArray.append(TodoItem(text: row1text, check: row1checked))
+
+        let row2text = "Learn iOS development"
+        let row2checked = false
+        returnArray.append(TodoItem(text: row2text, check: row2checked))
+        
+        let row3text = "Soccer practice"
+        let row3checked = false
+        returnArray.append(TodoItem(text: row3text, check: row3checked))
+
+        
+        let row4text = "Eat ice cream"
+        let row4checked = false
+        returnArray.append(TodoItem(text: row4text, check: row4checked))
+
+        completion(returnArray)
+    }
+    
+    
 }
 
