@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V11-xD-yuq">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ChecklistItemCell" id="pT8-GH-Es0" customClass="ToDoTableViewCell" customModule="DoIt" customModuleProvider="target">
@@ -68,6 +68,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mVX-Kz-5fQ">
                             <connections>
                                 <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="o4e-0v-Eon"/>
+                                <segue destination="u2j-n0-gQP" kind="show" id="AVL-Kc-cah"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -79,13 +80,77 @@
             </objects>
             <point key="canvasLocation" x="957.97101449275374" y="20.758928571428569"/>
         </scene>
+        <!--Title-->
+        <scene sceneID="K9H-Dw-m3u">
+            <objects>
+                <tableViewController id="u2j-n0-gQP" customClass="NewTodoTableViewController" customModule="DoIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="0cn-Rj-3bP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="hkw-7o-uFm">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="30" id="5v5-4v-OmY">
+                                        <rect key="frame" x="0.0" y="35" width="414" height="30"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5v5-4v-OmY" id="iEu-V7-sof">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="29.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZUv-xb-fgI">
+                                                    <rect key="frame" x="20" y="11" width="374" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="1Ec-65-rJX"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZUv-xb-fgI" secondAttribute="trailing" id="BJF-Pk-KlC"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ZUv-xb-fgI" secondAttribute="bottom" id="CDF-io-sVg"/>
+                                                <constraint firstItem="ZUv-xb-fgI" firstAttribute="top" secondItem="iEu-V7-sof" secondAttribute="topMargin" id="K8m-Qu-7D4"/>
+                                                <constraint firstItem="ZUv-xb-fgI" firstAttribute="leading" secondItem="iEu-V7-sof" secondAttribute="leadingMargin" id="jdl-0t-iDI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="u2j-n0-gQP" id="91R-w3-jyy"/>
+                            <outlet property="delegate" destination="u2j-n0-gQP" id="tQO-u8-PCT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Title" largeTitleDisplayMode="never" id="Tsm-wa-lgt">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fqW-9e-Yme">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="u2j-n0-gQP" id="vry-e3-dm9"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="dmj-qU-WGr">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="u2j-n0-gQP" id="yhF-9V-0sf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="ZUv-xb-fgI" id="AjO-AK-Ex6"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AFr-sn-reX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1888.4057971014495" y="19.419642857142858"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="6cL-Gh-QOr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cDm-At-3Dd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kip-uR-Lww">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="kip-uR-Lww">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
