@@ -33,7 +33,7 @@ extension ToDoListViewController: UITableViewDataSource{
     
     @available(iOS 2.0, *)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return toDoItems.count
     }
     
     
@@ -61,9 +61,11 @@ extension ToDoListViewController: UITableViewDelegate {
         
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.accessoryType = cell.accessoryType == .none ? .checkmark: .none
+            
+            var todoItem = toDoItems[indexPath.row]
+            todoItem.check = !todoItem.check
+            toDoItems[indexPath.row] = todoItem
         }
-        
-        
         
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
