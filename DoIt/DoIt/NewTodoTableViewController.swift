@@ -21,6 +21,9 @@ class NewTodoTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.textField.becomeFirstResponder()
+        
     }
 
     // MARK: - Table view data source
@@ -89,6 +92,7 @@ class NewTodoTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 
 
     
