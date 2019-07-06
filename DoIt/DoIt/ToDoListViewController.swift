@@ -18,16 +18,12 @@ class ToDoListViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
-//        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        
         ToDoListViewController.getTodoList {
             self.toDoItems = $0
         }
         
     }
-
+    
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         
         let newTodoItem = TodoItem(text: "NEW", check: false)

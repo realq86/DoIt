@@ -105,7 +105,10 @@
                                                     </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                    <connections>
+                                                        <action selector="keyboardDonePressed:forEvent:" destination="u2j-n0-gQP" eventType="editingDidEndOnExit" id="oJe-af-caX"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>

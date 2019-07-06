@@ -113,6 +113,8 @@ extension NewTodoTableViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    
+    @IBAction func keyboardDonePressed(_ sender: UITextField, forEvent event: UIEvent) {
+        dismiss(animated: true, completion: nil)
+    }
     
 }
