@@ -116,7 +116,7 @@ extension NewTodoTableViewController: UITextFieldDelegate {
         return true
     }
     
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
         saveButton.isEnabled = false
         return true
     }
