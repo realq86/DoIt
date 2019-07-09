@@ -8,11 +8,19 @@
 
 import UIKit
 
+protocol NewTodoTableViewControllerDelegate: class {
+    func newTodoVC(_ vc: NewTodoTableViewController, didAddItem item: TodoItem)
+    
+    func userCanceledFrom(_ vc: NewTodoTableViewController)
+}
+
+
 class NewTodoTableViewController: UITableViewController {
 
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
     
+    weak var delegate: NewTodoTableViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
