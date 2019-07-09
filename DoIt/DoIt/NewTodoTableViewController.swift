@@ -10,6 +10,7 @@ import UIKit
 
 class NewTodoTableViewController: UITableViewController {
 
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
     
     
@@ -98,6 +99,32 @@ class NewTodoTableViewController: UITableViewController {
     
 }
 
+
+// MARK: - TextField Delegates
+extension NewTodoTableViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        guard let oldText = textField.text else { return true }
+        
+        guard let newRange = Range(range, in: oldText) else { return true }
+        
+        let newText = oldText.replacingCharacters(in: newRange, with: string)
+        
+        saveButton.isEnabled = !newText.isEmpty
+        
+        return true
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {    
+        saveButton.isEnabled = false
+        return true
+    }
+    
+}
+
+
+// MARK: - IBActions
 extension NewTodoTableViewController {
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
