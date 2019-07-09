@@ -127,21 +127,21 @@ extension NewTodoTableViewController: UITextFieldDelegate {
 // MARK: - IBActions
 extension NewTodoTableViewController {
     
-    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func saveButtonPressed() {
         
         print("Content of textField \(textField.text ?? "") " )
+        //
+        //        navigationController?.popViewController(animated: true)
         
-        navigationController?.popViewController(animated: true)
+        let newText = textField.text ?? ""
+        delegate?.newTodoVC(self, didAddItem: TodoItem(text: newText, check: nil))
     }
-    
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
         
         navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func keyboardDonePressed(_ sender: UITextField, forEvent event: UIEvent) {
-        dismiss(animated: true, completion: nil)
+        
+        delegate?.userCanceledFrom(self)
     }
     
 }
