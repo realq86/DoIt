@@ -107,7 +107,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
-                                                        <action selector="keyboardDonePressed:forEvent:" destination="u2j-n0-gQP" eventType="editingDidEndOnExit" id="oJe-af-caX"/>
+                                                        <action selector="saveButtonPressed" destination="u2j-n0-gQP" eventType="editingDidEndOnExit" id="uo1-3W-6j8"/>
                                                         <outlet property="delegate" destination="u2j-n0-gQP" id="gN8-6r-Mh7"/>
                                                     </connections>
                                                 </textField>
@@ -136,7 +136,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="dmj-qU-WGr">
                             <connections>
-                                <action selector="saveButtonPressed:" destination="u2j-n0-gQP" id="yhF-9V-0sf"/>
+                                <action selector="saveButtonPressed" destination="u2j-n0-gQP" id="eVm-qg-iCz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
