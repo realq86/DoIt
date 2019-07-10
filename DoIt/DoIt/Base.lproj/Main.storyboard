@@ -68,7 +68,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mVX-Kz-5fQ">
                             <connections>
                                 <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="o4e-0v-Eon"/>
-                                <segue destination="u2j-n0-gQP" kind="show" id="AVL-Kc-cah"/>
+                                <segue destination="u2j-n0-gQP" kind="show" identifier="ToNewTodo" id="AVL-Kc-cah"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

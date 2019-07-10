@@ -34,6 +34,15 @@ class ToDoListViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "ToNewTodo" {
+            let controller = segue.destination as! NewTodoTableViewController
+            controller.delegate = self
+        }
+        
+    }
+    
 }
 
 
@@ -88,6 +97,18 @@ extension ToDoListViewController: UITableViewDelegate {
     }
 }
 
+extension ToDoListViewController: NewTodoTableViewControllerDelegate {
+    func newTodoVC(_ vc: NewTodoTableViewController, didAddItem item: TodoItem) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func userCanceledFrom(_ vc: NewTodoTableViewController) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+}
+
+
 extension ToDoListViewController {
     
     static func getTodoList(completion: ([TodoItem]) -> ()) {
@@ -117,7 +138,5 @@ extension ToDoListViewController {
 
         completion(returnArray)
     }
-    
-    
 }
 
