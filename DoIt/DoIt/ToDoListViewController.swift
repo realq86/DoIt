@@ -99,6 +99,12 @@ extension ToDoListViewController: UITableViewDelegate {
 
 extension ToDoListViewController: NewTodoTableViewControllerDelegate {
     func newTodoVC(_ vc: NewTodoTableViewController, didAddItem item: TodoItem) {
+        
+        toDoItems.append(item)
+        
+        let indexPath = IndexPath(row: toDoItems.count-1, section: 0)
+        tableView.insertRows(at: [indexPath], with: .automatic)
+
         navigationController?.popViewController(animated: true)
     }
     
