@@ -65,8 +65,7 @@ extension ToDoListViewController: UITableViewDataSource{
         
         let todoItem = toDoItems[indexPath.row]
         cell.label.text = todoItem.text ?? ""
-        cell.accessoryType = todoItem.check ? .checkmark : .none
-        
+        cell.checkLabel.isHidden = !todoItem.check
         return cell
     }
     
@@ -77,12 +76,13 @@ extension ToDoListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let cell = tableView.cellForRow(at: indexPath) {
-            cell.accessoryType = cell.accessoryType == .none ? .checkmark: .none
+        if let cell = tableView.cellForRow(at: indexPath) as? ToDoTableViewCell {
             
             var todoItem = toDoItems[indexPath.row]
             todoItem.check = !todoItem.check
             toDoItems[indexPath.row] = todoItem
+            
+            cell.checkLabel.isHidden = !todoItem.check
         }
         
         self.tableView.deselectRow(at: indexPath, animated: true)

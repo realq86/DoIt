@@ -11,6 +11,7 @@ import UIKit
 class ToDoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var checkLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
