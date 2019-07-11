@@ -11,6 +11,9 @@ import UIKit
 protocol NewTodoTableViewControllerDelegate: class {
     func newTodoVC(_ vc: NewTodoTableViewController, didAddItem item: TodoItem)
     
+    func newTodoVC(_ vc: NewTodoTableViewController, didEditItem item: TodoItem)
+
+    
     func userCanceledFrom(_ vc: NewTodoTableViewController)
 }
 
@@ -22,6 +25,8 @@ class NewTodoTableViewController: UITableViewController {
     
     weak var delegate: NewTodoTableViewControllerDelegate?
     
+    var todoEditItem: TodoItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +37,12 @@ class NewTodoTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         self.textField.becomeFirstResponder()
+        
+        if let editItem = todoEditItem {
+            title = "Edit Todo"
+            textField.text = editItem.text
+            saveButton.isEnabled = true
+        }
         
     }
 
@@ -138,8 +149,12 @@ extension NewTodoTableViewController {
     @IBAction func saveButtonPressed() {
         
         print("Content of textField \(textField.text ?? "") " )
-        //
-        //        navigationController?.popViewController(animated: true)
+        
+        if var todoEditItem = todoEditItem {
+            todoEditItem.text = textField.text ?? ""
+            delegate?.newTodoVC(self, didEditItem: todoEditItem)
+            return
+        }
         
         let newText = textField.text ?? ""
         delegate?.newTodoVC(self, didAddItem: TodoItem(text: newText, check: nil))

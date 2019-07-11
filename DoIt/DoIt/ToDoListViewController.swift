@@ -41,6 +41,14 @@ class ToDoListViewController: UIViewController {
             controller.delegate = self
         }
         
+        if segue.identifier == "ToEditTodo", let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+            let controller = segue.destination as! NewTodoTableViewController
+            controller.delegate = self
+            
+            let todoItem = toDoItems[indexPath.row]
+            controller.todoEditItem = todoItem
+        }
+        
     }
     
 }
@@ -105,6 +113,19 @@ extension ToDoListViewController: NewTodoTableViewControllerDelegate {
         let indexPath = IndexPath(row: toDoItems.count-1, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
 
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func newTodoVC(_ vc: NewTodoTableViewController, didEditItem item: TodoItem) {
+        if let index = toDoItems.firstIndex(of: item) {
+
+            let indexPath = IndexPath(row: index, section: 0)
+
+            if let cell = tableView.cellForRow(at: indexPath) as? ToDoTableViewCell {
+                cell.label?.text = item.text
+                cell.checkLabel.isHidden = !item.check
+            }
+        }
         navigationController?.popViewController(animated: true)
     }
     

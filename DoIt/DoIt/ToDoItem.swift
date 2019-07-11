@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TodoItem {
+class TodoItem: NSObject {
     
     var text: String?
     var check: Bool = false

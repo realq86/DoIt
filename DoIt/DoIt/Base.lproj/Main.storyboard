@@ -58,6 +58,7 @@
                                         <connections>
                                             <outlet property="checkLabel" destination="m1c-rp-QFe" id="1OL-8g-Mze"/>
                                             <outlet property="label" destination="sor-tX-eqe" id="7gg-g6-Bdm"/>
+                                            <segue destination="u2j-n0-gQP" kind="show" identifier="ToEditTodo" trigger="accessoryAction" id="Jwv-Xb-FeE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -81,7 +82,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mVX-Kz-5fQ">
                             <connections>
                                 <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="o4e-0v-Eon"/>
-                                <segue destination="u2j-n0-gQP" kind="show" identifier="ToNewTodo" id="AVL-Kc-cah"/>
+                                <segue destination="u2j-n0-gQP" kind="show" identifier="ToNewTodo" id="Sjz-9T-dJK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -181,4 +182,7 @@
             <point key="canvasLocation" x="79.710144927536234" y="-653.57142857142856"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Jwv-Xb-FeE"/>
+    </inferredMetricsTieBreakers>
 </document>
